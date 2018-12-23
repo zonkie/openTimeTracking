@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane id="mainWindow" alignment="center" style="" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.domroese.opentimetracking.Controller">
+    <children>
+        <MenuBar id="menuBar">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="true" onAction="#handleReload" text="_Daten neu Laden" />
+                        <MenuItem mnemonicParsing="true" onAction="#editEntries" text="_Zeiten editieren" />
+                        <MenuItem mnemonicParsing="true" onAction="#setSprintStart" text="_Sprint starten" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="true" text="_Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Preferences">
+                    <items>
+                        <MenuItem mnemonicParsing="true" text="_Init Database" />
+                    </items>
+                </Menu>
+                <Menu id="logMenu" disable="true" mnemonicParsing="false" text="status">
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TabPane id="tabBar" style=" -fx-border-color: #ffffff;" tabClosingPolicy="UNAVAILABLE" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+            <tabs>
+                <Tab text="Logging">
+                    <content>
+                        <AnchorPane id="mainAnchorPane" opacity="0.85">
+                            <Label id="labelActiveProject" alignment="TOP_LEFT" prefHeight="200.0" prefWidth="300.0" style="-fx-text-fill: #000000;" text="Active Project" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                </padding>
+                            </Label>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Summary">
+                    <content>
+                        <AnchorPane id="summaryAnchorPane">
+                            <children>
+                                <Label id="labelSummary" alignment="TOP_LEFT" layoutX="16.0" layoutY="67.0" style="-fx-text-fill: #000000;" text="Summary Overview" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <padding>
+                                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab onSelectionChanged="#editEntries" text="Edit">
+                <content>
+                    <AnchorPane id="editEntriesAnchorPane">
+                     <children>
+                        <TableView id="editEntriesTableView" prefHeight="200.0" prefWidth="361.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                    </AnchorPane>
+                </content>
+            </Tab>
+                <Tab text="Daily Summary">
+                    <content>
+                        <AnchorPane id="dailySummaryAnchorPane">
+                            <children>
+                                <Label id="labelDailySummary" alignment="TOP_LEFT" layoutX="16.0" layoutY="67.0" style="-fx-text-fill: #000000;" text="Summary Overview" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <padding>
+                                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab onSelectionChanged="#displaySprintSummary" text="Sprint Summary">
+                    <content>
+                        <AnchorPane id="sprintSummaryAnchorPane">
+                            <children>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints />
+    </rowConstraints>
+
+</GridPane>
